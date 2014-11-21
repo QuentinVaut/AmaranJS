@@ -1,297 +1,69 @@
 <!DOCTYPE html>
-    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Amaran JS Demo & Documentation</title>
-        <meta name="description" content="Amaran JS Documentation">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="cleartype" content="on">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" href="AmaranJS/dist/css/amaran.min.css">
-        <link rel="stylesheet" href="AmaranJS/dist/css/animate.min.css">
-        <link rel="stylesheet" href="assets/css/syntaxhighlighter/shCore.css">
-        <link rel="stylesheet" href="assets/css/syntaxhighlighter/shCoreStamm.css">
-        <link rel="stylesheet" href="assets/css/main.css">
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>AmaranJS</title>
+        <link rel="stylesheet" href="/dist/css/amaran.min.css">
+        <link rel="stylesheet" href="http://hakanersu.github.io/AmaranJS/AmaranJS/dist/css/animate.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/jquery.share.css"/>
+        <link rel="stylesheet" href="/css/obisidian.css"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/style.css"/>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-    	<div class="wrapper">
-    		<div id="header"></div>
-    		<div id="content">
-    			<div id="sidebar">
-                    <div class="header"></div>         
-                    <nav>
-                        <ul>
-                            <li><a href="#welcome">WELCOME & DEMO</a></li>
-                            <li><a href="#introduction">INSTALLATION</a></li>
-                            <li><a href="#basic-usage">BASIC USAGE</a></li>
-                            <li><a href="#templates">THEMES</a></li>
-                            <li><a href="#options">OPTIONS OVERVIEW</a></li>
-                            <!-- <li><a href="#examples">DETAILED EXAMPLES</a></li> -->
-                            <li><a href="#creating">CREATING THEMES</a></li>
-                            <li><a href="#animatecss">USING WITH ANIMATE.CSS</a></li>
-                        </ul>
-                    </nav>
-                    
+        <div id="header-wrapper">
+            <header role="banner" class="container">
+                <a id="logo" href="/examples">
+                   amaranJS
+                </a>
+                <nav id="main-menu">
+                    <ul>
+                        <li><a href="#getting-started">Demo</a></li>
+                        <li><a href="http://hakanersu.github.io/AmaranJS/documentation">Documentation</a></li>
+                        <li><a href="https://github.com/hakanersu/AmaranJS/archive/0.5.0.zip">Download</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                <h3 class="text-center nice">Nice, sleek and stylish notifications.</h3>
+                <div id="browser">
+                    <iframe src="amaranjs.html" frameborder="0"></iframe>
                 </div>
-    			<div id="main">
-                    <div class="main-header" id="welcome">
-                        <div class="row-fluid">
-                            <div class="col-md-12">
-                                <h3>Amaran JS Demo & Documentation</h3>
-                            </div>
-                        </div>                        
+            </div>
+
+        </div>
+        <div class="bar" id="getting-started">
+            <div id="social-bar">
+
+            </div>
+        </div>
+        <div class="container">
+            <section id="main-wrapper">
+
+                <div class="row each-row">
+                    <div class="col-md-6">
+ <pre>
+    <code class="javascript">
+$.amaran({'message':'My first example!'});
+    </code>
+</pre>
                     </div>
-                    <div class="row-fluid">
-                        <div class="col-md-12 section-header">                         
-                            <h3>Nice, sleek and stylish notifications.</h3> 
-                            <div style="position:absolute;top:24px;right:20px">
-                                <iframe src="http://ghbtns.com/github-btn.html?user=hakanersu&repo=AmaranJS&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
-                                <iframe src="http://ghbtns.com/github-btn.html?user=hakanersu&repo=AmaranJS&type=watch" allowtransparency="true" frameborder="0" scrolling="0" width="62" height="20"></iframe>
-                                <iframe src="http://ghbtns.com/github-btn.html?user=hakanersu&repo=AmaranJS&type=follow" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="btn-group">
-                                <a href="https://github.com/hakanersu/AmaranJS/archive/0.5.0.zip" class="btn btn-success"><span class="fa fa-github-alt"></span> Download</a>
-                                <a href="https://www.twitter.com/xuma" class="btn btn-success"><span class="fa fa-twitter"></span> @xuma</a>
-                            </div>
-                          <br><br>
-                            <p>Lets see some basic demos of AmaranJS.We will cover details in next chapters.</p>
-                            <p>Dont forget to check <a href="#animatecss">animate.css</a> section you will love it.</p>
-                            <h4>GENERAL OPTIONS</h4>
-                            <p>Select theme for demo.</p>
-                            <p>
-                                <select name="theme" id="theme">
-                                    <option value="default" >Default Theme</option>
-                                    <option value="awesome" selected>Awesome Theme</option>
-                                    <option value="colorful">Colorful Theme</option>
-                                    <option value="user">User Theme</option>
-                                </select>
-                            </p>
+                    <div class="col-md-6">
+<h3>Basic Usage</h3>
+<p>Basic usage without any theme setted.It will use default theme</p>
+<button type="button" class="btn btn-default btn-lg tryme-1">
+    Try Me <span class="glyphicon glyphicon-play"></span>
+</button>
+                    </div>
+                </div>
+                <div class="row each-row">
 
-                            <p>We can create notifications at diffrent positions.</p>
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from bottom left!" data-pos="bottom left">Bottom Left</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from bottom right!" data-pos="bottom right">Bottom Right</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from top left" data-pos="top left">Top Left</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from top right" data-pos="top right">Top Right</button>
-                              </div>
-                              <br><br>
-                              <p>We can set diffrent effects for notification to appear.You can find more effects at animate.css integrations section.</p>
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-inEffect="fadeIn">Fade In</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-inEffect="slideLeft">Slide In Left</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-inEffect="slideRight">Slide In Right</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-inEffect="slideTop">Slide In Top</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-inEffect="slideBottom">Slide In Bottom</button>
-                              </div>
-                              <br><br>
-                              <p>Same effects can be use for dissappear effect.</p>
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-outEffect="fadeOut">Fade Out</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-outEffect="slideLeft">Slide Out Left</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-outEffect="slideRight">Slide Out Right</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-outEffect="slideTop">Slide Out Top</button>
-                                <button type="button" class="btn btn-default run-1" data-message="Hello from AmaranJS!" data-pos="top right" data-outEffect="slideBottom">Slide Out Bottom</button>
-                              </div>
-                              <br><br>
-                              <p>Lets see other options.</p>
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="I will be here for 10 sec." data-delay="10000">Stay 10Sec</button>
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="You have to click me to close." data-sticky="true">Make it Sticky</button>
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="Click to close true as default." data-sticky="true">Click to Close</button>
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="Nice close button."  data-closeButton="true">Close Button</button>
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="I am Neo!" data-clearAll="true">Clear All Before Create</button>
-                              </div>
-                              <br><br>
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="Hello from AmaranJS!" data-beforeStart="true">Before Callback</button>
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="Hello from AmaranJS!" data-onclick="true">Click Callback</button>
-                                <button type="button" class="btn btn-default run-1" data-pos="top right" data-message="Hello from AmaranJS!" data-afterend="true">After Callback</button>
-                              </div>
-                            <div class="ayirici"></div>                  
-                        </div>
-                         <div class="col-md-12 section-header"  id="introduction">                         
-                            <h3>Installation</h3>                    
-                        </div>
-                        <div class="col-md-12">
-                        <h2>Minimal Setup</h2>
-                        <p>Go to dist directory and copy all the folders to a new destination, which will be your project home.</p>
-                        <p>It’s not required, but i recommend placing CSS files in <code>&lt;head&gt;</code> and JavaScript files and initialization code in the footer of your site (before the closing <code>&lt;/body&gt;</code> tag).</p>
-                            <pre class="brush:html">
-&lt;link rel="stylesheet" href="/css/amaran.min.css"&gt;
-                            </pre> 
-                            <p>jQuery required for Amaran JS.If you already have <code>jquery.js</code> on your site, don’t include it a second time, or use <code>jQuery.noConflict();</code> mode.</p>
-                            <p>You can add jQuery via Google CDN</p>
-                            <pre class="brush:html">
- &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
-                            </pre>
-                            <p>Place Amaran JS after jQuery</p>
-                            <pre class="brush:html">
-&lt;script src="/js/jquery.amaran.min.js"&gt;&lt;/script&gt;
-                            </pre>
-                            <p>So minimalistic setup look like this</p>
-                            <pre class="brush:html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;My Web Page&lt;/title&gt;
-    &lt;link rel="stylesheet" href="amaran/css/amaran.min.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;My Content&lt;/p&gt;
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script src="amaran/js/jquery.amaran.min.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                            </pre>
-                            <h2>Recomended Setup</h2>
-                            <p>I recommend <code>Font Awesome Icons</code> and <code>Open Sans</code> for better looking notifications.Specially for <code>default</code> theme.</p>
-                            <p>Just place these two css files inside your <code>&lt;head&gt;</code> section.</p>
-                            <pre class="brush:html">
-&lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;
-&lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'&gt;                                
-                            </pre>
-                            <p>So recomended setup should look like ;</p>
-                            <pre class="brush:html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;My Web Page&lt;/title&gt;
-    &lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;
-    &lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'&gt;  
-    &lt;link rel="stylesheet" href="amaran/css/amaran.min.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;My Content&lt;/p&gt;
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script src="amaran/js/jquery.amaran.min.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-                            </pre>
-                            <div class="ayirici"></div>                  
-                        </div>
-                        <div class="col-md-12 section-header"  id="basic-usage">                         
-                            <h3>Basic Usage</h3>                     
-                        </div>
-                        <div class="col-md-12">
-                            <p>We are ready to create our first example.Very very simple usage of Amaran JS.</p>
-                            <p>First of all we must add our code inside jQuery document ready function.<code>$(function(){ });</code></p>
-                            <p>message options available for all themes and you can use html code for message option.</p>
-                            <pre class="brush:javascript">
-$(function(){
-    $.amaran({content:{'message':'My first example!'}});
-});                                
-                            </pre>
-                            <p><button id="doce-1" class="btn btn-success">Run This Code <i class="fa fa-code"></i></button></p>
-
-                            <p>If you add this code inside <code>$(function(){ })</code> function it will automatically popsup when page loads.</p>
-                            <p>This code using default theme.If you want to use default theme you dont have to specify theme option.</p>
-                            <p>Lets create a notification with awesome theme.</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'My first funcy example!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok'
-});
-                            </pre>
-                            <p><button id="doce-2" class="btn btn-success" data-theme="awesome" data-message="My first awesome test!">Run This Code <i class="fa fa-code"></i></button></p>
-                            <p>Lets see full example.</p>
-                            <pre class="brush:html">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;My Web Page&lt;/title&gt;
-    &lt;link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"&gt;
-    &lt;link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'&gt; 
-    &lt;link rel="stylesheet" href="amaran/css/jquery.amaran.min.css"&gt;
-    &lt;link rel="stylesheet" href="amaran/css/themes/all-themes.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;p&gt;My Content&lt;/p&gt;
-    &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script src="amaran/js/jquery.amaran.js"&gt;&lt;/script&gt;
-    &lt;script&gt;
-        $(function(){
-            $.amaran({
-                content:{
-                    title:'Your Download is Ready!',
-                    message:'1.4 GB',
-                    info:'my_birthday.mp4',
-                    icon:'fa fa-download'
-                },
-                theme:'default ok'
-            });
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;                              
-                            </pre>
-                            <div class="ayirici"></div>                  
-                        </div>
-                        <div class="col-md-12 section-header"  id="templates">                         
-                            <h3>Themes</h3>                     
-                        </div>
-                        <div class="col-md-12">
-                            <h2>Using Themes</h2>
-                            <p>We have currently 4 themes.Some of them have variations like "awesome" theme.Lets look at themes.</p>
-                            <h3>"awesome" theme</h3>
-                            <p>Default theme has 7 variations.</p>
-                            <div class="amaran-demo default ok" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "ok" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="amaran-demo default error" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "error" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="amaran-demo default warning" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "warning" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="amaran-demo default yellow" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "yellow" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="amaran-demo default blue" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "blue" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="amaran-demo default green" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "green" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="amaran-demo default purple" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Awesome "purple" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                            <div class="clearfix"></div>
-                            <p><b>Usage</b></p>
-                            <pre class="brush:javascript">
+                    <div class="col-md-6">
+<pre>
+    <code class="javascript">
 $.amaran({
     content:{
         title:'Your Download is Ready!',
@@ -300,433 +72,163 @@ $.amaran({
         icon:'fa fa-download'
     },
     theme:'awesome ok'
-});
-                            </pre>
-                            <p>You can specify a theme by passing <code>theme : ''</code> option to Amaran JS object.</p>
-                            <p>For "awesome" theme you can call theme and variation with <code>theme 'awesome <b>&lt;VARIATION NAME&gt;</b>'</code> e.g : <code>theme:'awesome ok'</code> or<code>theme:'awesome error'</code>.We have 3 content options <code>title,message</code> and <code>info</code>.<b>title</b> represent first line,<b>message</b> second line and <b>info</b> reperesent third line.<code>icon</code> options you can specify icon."awesome" theme using <a href="http://fontawesome.io/icons/">Font Awesome</a> icons.Icons list can be found in this <a href="http://fontawesome.io/icons/">http://fontawesome.io/icons/</a> adress.</p>
-                            <p>e.g For envelope icon just pass <code>icons:'fa fa-envelope'</code></p>
-                            <p><b>Creating your own variations</b></p>
-                            <pre class="brush:css">
-.amaran.awesome.&lt;VARIATION NAME&gt; p.bold{
-    color:&lt;COLOR CODE&gt;;
-}
-.amaran.awesome.&lt;VARIATION NAME&gt; .icon {
-    background-color:&lt;COLOR CODE&gt;;
-    color:#fff;
-}
-                           </pre>
-                           <p>Just change <code>&lt;VARIATION NAME&gt;</code> with your variation name and <code>&lt;COLOR CODE&gt;</code> with your color code and add in your main css file.</p>
-                           <p>e.q</p>
-                           <pre class="brush:css">
-.amaran.awesome.pink p.bold{
-    color:#D704DE;
-}
-.amaran.awesome.pink .icon {
-    background-color:#D704DE;
-    color:#fff;
-}
-                           </pre>
-                           <div class="amaran-demo default pink" style="display:block;float:left;">
-                                <i class="icon fa fa-download icon-large"></i>
-                                <p class="bold">Your "pink" variation</p>
-                                <p><span>1.4 GB</span><span class="light">my_birthday.mp4</span></p>
-                            </div>
-                             <div class="clearfix"></div>
-                     
-                             <h3>"user" theme</h3>
-                             <p>"user" theme has 4 variations </p>
-                             <div class="amaran-demo user" style="display: block;">
-                                <div class="icon"><img src="http://api.randomuser.me/0.2/portraits/men/23.jpg" alt=""></div>
-                                <div class="info"><b>No variation</b>images from randomuser.me</div>
-                            </div>
-                             <div class="amaran-demo user green" style="display: block;">
-                                <div class="icon"><img src="http://api.randomuser.me/0.2/portraits/men/23.jpg" alt=""></div>
-                                <div class="info"><b>Green Variation</b>images from randomuser.me</div>
-                            </div>
-                            <div class="amaran-demo user yellow" style="display: block;">
-                                <div class="icon"><img src="http://api.randomuser.me/0.2/portraits/men/23.jpg" alt=""></div>
-                                <div class="info"><b>Yellow Variation</b>images from randomuser.me</div>
-                            </div>
-                            <div class="amaran-demo user blue" style="display: block;">
-                                <div class="icon"><img src="http://api.randomuser.me/0.2/portraits/men/23.jpg" alt=""></div>
-                                <div class="info"><b>Blue Variation</b>images from randomuser.me</div>
-                            </div>
-                            <div class="clearfix"></div>
-                            <p><b>Usage:</b></p>
-                            <pre class="brush:javascript">
- $.amaran({
-    content:{
-        img:'http://api.randomuser.me/0.2/portraits/men/36.jpg',
-        user:'John Walker',
-        message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ducimus?'
-       },
-    theme:'user green',
-});
-                            </pre>
+ });
+    </code>
+</pre>
 
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Using Predefined Themes</h3>
+                        <p>AmaranJS has 4 predefined themes each of them has easy unique setup.Lets see with
+                            <strong>Awesome</strong> theme.</p>
+                        <button type="button" class="btn btn-default btn-lg tryme-2">
+                            Try Me <span class="glyphicon glyphicon-play"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="row each-row">
+                    <div class="col-md-6">
+<pre>
+    <code class="javascript">
+$.amaran({
+    content:{
+        title:'Your Download is Ready!',
+        message:'1.4 GB',
+        info:'my_birthday.mp4',
+        icon:'fa fa-download'
+    },
+    theme:'awesome ok',
+    position:'top left'
+});
+    </code>
+</pre>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Setting Position</h3>
+                        <p>Just set position option with vertical and horizontal position order.Like <strong>top left</strong> or  <strong>bottom right</strong></p>
+                        <button type="button" class="btn btn-default btn-lg tryme-3">
+                            Try Me <span class="glyphicon glyphicon-play"></span>
+                        </button>
+                    </div>
+                </div>
+<div class="row each-row">
+    <div class="col-md-6">
+<pre>
+    <code class="javascript">
+$.amaran({
+    content:{
+        title:'Your Download is Ready!',
+        message:'1.4 GB',
+        info:'my_birthday.mp4',
+        icon:'fa fa-download'
+    },
+    theme:'awesome ok',
+    position:'top left',
+    inEffect:'slideRight',
+    outEffect:'slideLeft'
+});
+    </code>
+</pre>
 
-<h3>"colorful" theme</h3>
-                            <p>Colorful theme intend to make flat notifications.Checkout examples below.</p>
-                             
-                             <div class="amaran colorful" style="display: block;">
-                                <div class="colorful-inner">Basic colorful theme</div>
-                            </div>
-                     
-                            <div class="clearfix"></div>
-                            <p><b>Usage:</b></p>
-                            <pre class="brush:javascript">
- $.amaran({
-    content:{
-        bgcolor:'#27ae60',
-        color:'#fff',
-        message:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, ducimus?'
-       },
-    theme:'colorful'
-});
-                            </pre>
-
-
-
-
-
-
-
-                           
-                            <div class="btn-group">
-                              <button type="button" class="btn btn-success" id="doce-21">Bottom Right</button>
-                              <button type="button" class="btn btn-success" id="doce-22">Bottom Left</button>
-                              <button type="button" class="btn btn-success" id="doce-23">Top Right</button>
-                            </div>
-                            <div class="ayirici"></div>
-</div>
-                            <div class="col-md-12 section-header"  id="templates">                         
-                                <h3>Options Overview</h3>                     
-                            </div>
-                            <div class="col-md-12">
-                            <h3 id="options">In Effect</h3>
-                            <p><b>Default : </b><code>inEffect:fadeIn</code></p>
-                            <p><b>Options : </b><br><code>inEffect:fadeIn</code><br><code>inEffect:slideLeft</code><br><code>inEffect:slideRight</code><br><code>inEffect:slideTop</code><br><code>inEffect:slideBottom</code></p>
-                            <p>Notifications appear effect</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    inEffect:'slideRight'
-});
-                            </pre>
-                            
-                            
-                            <h3>Out Effect</h3>
-                            <p><b>Default : </b><code>inEffect:fadeOut</code></p>
-                            <p><b>Options : </b><br><code>outEffect:fadeOut</code><br><code>outEffect:slideLeft</code><br><code>outEffect:slideRight</code><br><code>outEffect:slideTop</code><br><code>outEffect:slideBottom</code></p>
-                            <p>Notifications appear effect</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    outEffect:'slideRight'
-});
-                            </pre>
-                           
-                            
-                            <h3>delay</h3>
-                            <p><b>Default : </b><code>delay:3000</code></p>
-                            <p>Default auto hide time is 3 seconds you can specify auto hide time with delay option.</p>
-                            <p><code>delay : &lt;milisecond&gt;</code></p>
-                            <h5>Example</h5>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    delay:10000
-});
-                            </pre>
-                            <h3>sticky</h3>
-                            <p><b>Default : </b><code>sticky:false</code></p>
-                            <p>Notifications remain on screen.</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    sticky:true
-});
-                            </pre>
-                            <h3>Close on Click</h3>
-                            <p><b>Default : </b><code>closeOnClick:true</code></p>
-                            <p>You can close notifications by clicking on them.</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    closeOnClick:false
-});
-                            </pre>
-                            <h3>Close Button</h3>
-                            <p><b>Default : </b><code>closeButton:false</code></p>
-                            <p>You can add close button to notifications.</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    closeButton:true
-});
-                            </pre>
-                            <h3>Clear All </h3>
-                            <p><b>Default : </b><code>clearAll:false</code></p>
-                            <p>Clear all notifications on screen before create new one.</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    clearAll:true
-});
-                            </pre>
-<h3>cssanimationIn </h3>
-                            <p><b>Default : </b><code>cssanimationIn:false</code></p>
-                            <p>Uses animate.css effect as appear effect.</p>
-                            <pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    cssanimationIn: 'swing'
-});
-                            </pre>
-<h3>cssanimationOut </h3>
-<p><b>Default : </b><code>cssanimationOut:false</code></p>
-<p>Uses animate.css effect as disappear effect.</p>
-<pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    cssanimationOut: 'bounceOut'
-});
-                            </pre>   
-<h3>beforeStart </h3>
-<p><b>Default : </b><code>beforeStart:function(){}</code></p>
-<p>Callback function that executes before notification show up.</p>
-<pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    beforeStart: function(){
-        alert("Hi");
-    }
-});
-                            </pre> 
-<h3>afterEnd </h3>
-<p><b>Default : </b><code>afterEnd:function(){}</code></p>
-<p>Callback function that executes after notification disappear.</p>
-<pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    afterEnd: function(){
-        alert("Hi");
-    }
-});
-                            </pre>    
-<h3>onClick </h3>
-<p><b>Default : </b><code>onClick:function(){}</code></p>
-<p>Callback function that executes when click on notification.</p>
-<pre class="brush:javascript">
-$.amaran({
-    content:{
-        title:'Your Download is Ready!',
-        message:'1.4 GB',
-        info:'my_birthday.mp4',
-        icon:'fa fa-download'
-    },
-    theme:'awesome ok',
-    onClick: function(){
-        alert("Hi");
-    }
-});
-                            </pre>  
-<h3>themeTemplate </h3>
-<p><b>Default : </b><code>themeTemplate:null</code></p>
-<p>User templates.You can find more at creating themes section</p>
-                             
-                            <div class="ayirici"></div>
-                            </div>
-                            <div class="col-md-12 section-header"  id="creating">                         
-                                <h3>Creating Themes</h3> 
-
-                            </div>
-                            <div class="col-md-12">
-                                <p>First of all decide your html structure for your template.</p>
-<pre class="brush:html">
-<div class='mydiv'>
-    <span class='title'>USER INFO</span>
-    <div class="inner-content">
-        <span class='firstname'>Hakan</span>
-        <span class='lastname'>ERSU</span>
-        <span class='message'>My Message</span>
+    </div>
+    <div class="col-md-6">
+        <h3>Setting Effects</h3>
+        <p>We have 5 built-in effects ( <strong>fade</strong>,
+                                        <strong>slideLeft</strong> ,
+                                        <strong>slideRight</strong>,
+                                        <strong>slideTop</strong>,
+                                        <strong>slideBottom</strong> ) and  two options to use animate.css effects. </p>
+        <p>For appering effect you can use <strong>inEffect</strong> option and disappering effect you can use <strong>inEffect</strong> option.</p>
+        <p>If you want use animate.css effects we have <strong>cssanimationIn</strong> and <strong>cssanimationOut</strong> options.</p>
+        <button type="button" class="btn btn-default btn-lg tryme-4">
+            Try Me <span class="glyphicon glyphicon-play"></span>
+        </button>
     </div>
 </div>
-</pre>
-<p>Now lets use themeTemplate option.All we have to do pass our html structure with placeholders we choose.And pass our content object with values.</p> 
-<p>But first  you have to pass your theme name on your content object.<code>themeName:</code></p> 
-<p>Its necessary for better styling.</p>
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="text-center">You Want More ? </h2>
+        <p>You can find more information about AmaranJS at documentation page with more examples.</p>
+    </div>
+</div>
 
-<pre class="brush:javascript">
-$.amaran({
-        content:{
-            themeName:'myTheme',
-            firstname:'Hakan',
-            lastname:'ERSU',
-            message:'Hi'
-           },
-        themeTemplate:function(data){
-          return '<div class="mydiv"><span class="title">USER INFO</span><div class="inner-content"><span class="firstname">'+data.firstname+'</span><span class="lastname">'+data.lastname+'</span><span class="message">'+data.message+'</span></div></div>';
-        },
-        position:'top right'
-    });
+                <h2 class="text-center">Installation</h2>
+<p>You can install AmaranJS  through bower:</p>
+<pre>
+    <code class="xhtml">
+bower install amaranjs
+    </code>
 </pre>
-<button id="create-template" class="btn btn-success">Run This Code <i class="fa fa-code"></i></button>
-<br><br>
-<p>Lets style our notification.</p>
-<pre class="brush:css">
-.amaran.myTheme{
-  background: #ced4dc;
-  font-size:13px;
-  padding:0px;
-  margin: 5px 10px;
-}
-.amaran.myTheme .title {
-  font-size:22px;
-  font-weight:bold;
-  display: block;
-  background: #33393d;
-  padding:2px 4px 2px 10px;
-}
-.amaran.myTheme span{
-  display: block;
-}
-.amaran.myTheme .inner-content{
-  padding:10px;
-  color:#222;
-} 
+                <p>Or download AmaranJS and go to dist directory and copy all the folders to a new destination, which will be your project home.</p>
+                <p>It’s not required, but i recommend placing CSS files in <head> and JavaScript files and initialization code in the footer of your site (before the closing <code>&lt;/body&gt;</code>  tag).</p>
+                <p>jQuery required for Amaran JS.If you already have jquery.js on your site, don’t include it a second time, or use jQuery.noConflict(); mode</p>
+<pre>
+    <code class="xhtml">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/amaran.min.css&quot;&gt;
+    </code>
 </pre>
-<button id="create-template2" class="btn btn-success">Run This Code <i class="fa fa-code"></i></button>                        
-                            <div class="ayirici"></div>
+                <p>You can add jQuery via Google CDN</p>
+<pre>
+    <code>
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+    </code>
+</pre>
+                <p>Place Amaran JS after jQuery</p>
+<pre>
+    <code>
+&lt;script src=&quot;dist/js/jquery.amaran.js&quot;&gt;&lt;/script&gt;
+    </code>
+</pre>
+                <p>So minimalistic setup look like this</p>
+<pre>
+    <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My Web Page&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/amaran.min.css&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;My Content&lt;/p&gt;
+        &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;dist/js/jquery.amaran.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+    </code>
+</pre>
+             <h3>Optional Steps</h3>
+             <p>Awesome theme uses fontawesome if you want to use awesome theme you have to include fontawesome.</p>
+<pre>
+    <code>
+&lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css&quot; rel=&quot;stylesheet&quot;&gt;
+    </code>
+</pre>
+                <p>If you want to use Animate.css effects you have to include Animate.css . Animate.css already included dist/css folder.</p>
+<pre>
+    <code>
+&lt;link rel=&quot;stylesheet&quot; href=&quot;dist/css/animate.min.css&quot;&gt;
+    </code>
+</pre>
+
+             </section>
+        </div>
+    
+            <div class="container-fluid footer">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="footer">
+                            <p>Hi ,i am <a href="http://www.hakanersu.com">Hakan ERSU</a> feel free to fork <a href="https://github.com/hakanersu/AmaranJS/">AmaranJS</a> on <a href="https://github.com/hakanersu/AmaranJS/">GitHub</a> or poke me on <a href="https://twitter.com/xuma">Twitter</a> for new features or themes.</p>
                         </div>
-
-
-                            <div class="col-md-12 section-header"  id="animatecss">                         
-                                <h3>Using With Animate CSS</h3> 
-
-                            </div>
-                            <div class="col-md-12">
-                            <p><a href="http://daneden.github.io/animate.css/">Animate.css</a> is a cross-browser library of CSS animations.</p>
-                            <p><a href="http://daneden.github.io/animate.css/">Animate.css</a> already included in AmaranJS css folder but you can still download current version from offical <a href="http://daneden.github.io/animate.css/">page</a>.</p>
-                            <p>Just play with it tons of cool animation you can create.</p>
-                            <pre class="brush:javascript">
- $.amaran({
-    content:{
-        bgcolor:'#8e44ad',
-        color:'#fff',
-        message:'Lets see with animate.css'
-       },
-    theme:'colorful',
-    position:'bottom right',
-    closeButton:true,
-    cssanimationIn: 'swing',
-    cssanimationOut: 'bounceOut'
-
-});
-                            </pre>
-                            <button id="doce-25" class="btn btn-success">Run This Code <i class="fa fa-code"></i></button>
-                                                        <pre class="brush:javascript">
- $.amaran({
-    content:{
-        bgcolor:'#8e44ad',
-        color:'#fff',
-        message:'Lets see with animate.css'
-       },
-    theme:'colorful',
-    position:'bottom right',
-    closeButton:true,
-    cssanimationIn: 'rubberBand',
-    cssanimationOut: 'bounceOutUp'
-
-});
-                            </pre>
-                            <button id="doce-26" class="btn btn-success">Run This Code <i class="fa fa-code"></i></button>
-                            <div class="ayirici"></div>
                     </div>
-
                 </div>
-    		</div>
-    	</div>
-    	<div class="footer"></div>
-        <!-- JavaScript libraries -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            </div>
+   
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <!-- Javascripts -->
-        <script src="AmaranJS/dist/js/jquery.amaran.min.js"></script>
-        <!-- Navigation -->
-        <script src="assets/js/jquery.scrollTo.js"></script>
-        <script src="assets/js/jquery.nav.js"></script>
-        <!-- Syntax Hightlight -->
-        <script src="assets/js/syntaxhighlighter/shCore.js"></script>
-        <script src="assets/js/syntaxhighlighter/shAutoloader.js"></script>
-        <!-- My Script -->
-        <script src="assets/js/main.js"></script>
+        <script src="http://hakanersu.github.io/AmaranJS/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.2/highlight.min.js"></script>
+        <script src="../dist/js/jquery.amaran.js"></script>
+        <script src="js/jquery.share.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

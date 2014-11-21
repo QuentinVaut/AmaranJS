@@ -1,0 +1,129 @@
+html {
+    height: 100%;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    height: 100%;
+    min-height: 100%;;
+    font-size: 14px;
+
+    overflow-y:scroll;
+}
+p{
+    margin: 0 0 24px;
+}
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+#header-wrapper {
+    min-height: 666px; /* Devil */
+    background: radial-gradient(ellipse at 50% 30%,#f1cf98 1%,#e6aa3e 70%);
+    position: relative;
+}
+
+a:hover {
+    text-decoration: none;
+
+}
+a#logo {
+    font-size:40px;
+    color: rgba(0, 0, 0, 0.7);
+    font-family: 'Pacifico', cursive;
+}
+header[role="banner"]{
+    padding-top:20px
+}
+#browser{
+    width: 781px;
+    height: 515px;
+    display: block;
+    background: url('../browser.png') 0 0 no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -390px;
+    padding: 66px 26px 26px 26px;
+
+}
+#browser iframe {
+    width:100%;
+    height:100%;
+}
+nav#main-menu {
+    float:right;
+    padding-top:18px;
+}
+nav#main-menu ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+nav#main-menu ul li{
+    display: inline-block;
+    margin-left: 20px;
+}
+nav#main-menu ul li a{
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+nav#main-menu ul li a:hover{
+    color: #222;
+}
+.nice {
+    color:#fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    font-family: 'Pacifico', cursive;
+    font-weight: 300
+}
+#main-wrapper {
+    padding:20px 0;
+    font-size:18px;
+}
+.bar {
+    min-height:80px;
+    border-top: 1px solid #B9B9B9;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+}
+#social-bar{
+    width:400px;
+    display : block;
+    margin: 0 auto;
+    height: 80px;
+    line-height: 80px;
+    padding-top:20px;
+}
+pre {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    margin: 0 0;
+    font-size: 16px;
+    background-color: #fff;
+}
+pre code.hljs {
+    padding: 10px 30px;
+}
+.col-md-6 h3 {
+    margin-bottom: 10px
+}
+.col-md-6 p {
+    margin-bottom: 12px
+}
+.col-md-6 span.glyphicon {
+    font-size: 14px
+}
+.footer{
+    background: #F0F0F0; 
+    border-top:2px solid rgba(0, 0, 0, 0.03); 
+}
+#footer {
+    margin: 30px 0 0 0;
+    padding: 80px 0;
+  
+    text-align: center;
+    font-size: 24px;
+    color:rgba(0, 0, 0, 0.5);
+}
+#footer a {
+    color:rgba(0, 0, 0, 0.8);
+}
