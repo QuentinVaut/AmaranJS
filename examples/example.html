@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AmaranJS ES6</title>
+  <link rel="stylesheet" href="amaran.min.css">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.css">-->
+  <style>
+    .amaran {
+      display: none;
+    }
+    .amaran.amaranFadeIn{
+
+
+    }
+
+  </style>
+</head>
+<body>
+  <p style="text-align:center;">  <button>Click</button></p>
+
+  <script src="../src/amaran.js"></script>
+  <script>
+
+    document.querySelector("button").addEventListener("click", function(){
+      amaran({
+        theme: 'default',
+        position: 'top right',
+        inEffect:'fade',
+        outEffect: 'toTop',
+        content: { hop: 'naber',content: 'Üç'}
+      });
+    });
+    /*amaran({
+      theme: 'default',
+      position: 'top left',
+      inEffect: 'fade',
+      content: { hop: 'naber',content: 'Üç'}
+    });*/
+
+  </script>
+</body>
+</html>
