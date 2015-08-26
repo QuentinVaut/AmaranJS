@@ -79,6 +79,21 @@ var amaran = (function() {
         style = this.transform('translateX('+negativeMargin+'px);');
 
       }
+      if(this.defaults.outEffect=='toLeft'){
+        var negativeMargin = (directions[1] == 'right') ?  (window.innerWidth + 20) :(this.getWidth(this.wrapper[0]) + 20);
+        style = this.transform('translateX(-'+negativeMargin+'px);');
+
+        element.addEventListener("click", function(e){
+          this.style.cssText += style;
+
+          element.addEventListener( 'transitionend',function(e) {
+            this.style.cssText += that.transform('transition-duration: 500ms; margin-top: -55px;');
+            if(e.propertyName=="margin-top"){
+              element.parentNode.removeChild(element);
+            }
+          }, true );
+        });
+      }
 
       if(this.defaults.outEffect=='fade' || this.defaults.outEffect=='toRight'){
         element.addEventListener("click", function(e){
@@ -104,6 +119,20 @@ var amaran = (function() {
           element.addEventListener( 'transitionend',function(e) {
             this.style.cssText += 'margin-top: -55px;';
             if(e.propertyName=="margin-top"){
+              element.parentNode.removeChild(element);
+            }
+          }, true );
+        });
+      }
+      if(this.defaults.outEffect=='toBottom'){
+        element.addEventListener("click", function(e){
+
+          var toBottom = window.innerHeight-(this.offsetTop+this.offsetHeight)+this.offsetHeight;
+
+          this.style.cssText += that.transform('translateY('+toBottom+'px);');
+          element.addEventListener( 'transitionend',function(e) {
+            this.style.cssText += 'margin-bottom: -5px;';
+            if(e.propertyName=="margin-bottom"){
               element.parentNode.removeChild(element);
             }
           }, true );

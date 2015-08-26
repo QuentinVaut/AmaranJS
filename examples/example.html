@@ -9,11 +9,6 @@
     .amaran {
       display: none;
     }
-    .amaran.amaranFadeIn{
-
-
-    }
-
   </style>
 </head>
 <body>
@@ -25,9 +20,9 @@
     document.querySelector("button").addEventListener("click", function(){
       amaran({
         theme: 'default',
-        position: 'top right',
+        position: 'top left',
         inEffect:'fade',
-        outEffect: 'toTop',
+        outEffect: 'toLeft',
         content: { hop: 'naber',content: 'Üç'}
       });
     });
