@@ -45,6 +45,8 @@ var amaran = (function() {
       inner.appendChild(amaran);
       // handle amaran closing function.
       this.close(amaran);
+      // Test Function
+      this.test();
     },
     createAmaran: function(){
       var amaran;
@@ -138,6 +140,18 @@ var amaran = (function() {
           }, true );
         });
       }
+
+    },
+    test: function(element){
+      var that = this;
+      // Get all required values.
+      var windowHeight = window.innerHeight;
+      var windowWidth = window.innerWidth;
+      var wrapper = this.wrapper[0];
+      var wrapperHeight = wrapper.offsetHeight;
+      var wrapperOffsetTop = wrapper.offsetTop;
+      //var wrapperOffsetBottom = wrapperOffsetTop +
+      //console.log(wrapperTopOffset);
 
     },
     transform: function(style){
