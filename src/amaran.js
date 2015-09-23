@@ -45,8 +45,6 @@ var amaran = (function() {
       inner.appendChild(amaran);
       // handle amaran closing function.
       this.close(amaran);
-      // Test Function
-      this.test();
     },
     createAmaran: function(){
       var amaran;
@@ -71,87 +69,67 @@ var amaran = (function() {
       var that = this;
       var style;
       var directions = this.defaults.position.split(" ");
+      var effect = this.defaults.outEffect.replace('to','').toLowerCase();
 
-      if(this.defaults.outEffect=='fade'){
-        style = 'opacity:0;display:block;transition-duration: 1000ms;';
+      var afterEndStyle = 'margin-top: -55px;';
+      var position = this.getPosition(element);
+      if(effect=='left' || effect=='right') {
+        var move = (directions[1]==effect) ? position[4] : position[2];
+        move = (effect=='left') ? move*-1 : move;
+        style = this.transform('translateX('+move+'px);');
       }
 
-      if(this.defaults.outEffect=='toRight'){
-        var negativeMargin = (directions[1] == 'right') ? (this.getWidth(this.wrapper[0]) + 20) : (window.innerWidth + 20);
-        style = this.transform('translateX('+negativeMargin+'px);');
-
-      }
-      if(this.defaults.outEffect=='toLeft'){
-        var negativeMargin = (directions[1] == 'right') ?  (window.innerWidth + 20) :(this.getWidth(this.wrapper[0]) + 20);
-        style = this.transform('translateX(-'+negativeMargin+'px);');
-
-        element.addEventListener("click", function(e){
-          this.style.cssText += style;
-
-          element.addEventListener( 'transitionend',function(e) {
-            this.style.cssText += that.transform('transition-duration: 500ms; margin-top: -55px;');
-            if(e.propertyName=="margin-top"){
-              element.parentNode.removeChild(element);
-            }
-          }, true );
-        });
+      if(effect=='top' || effect=='bottom') {
+        style = this.transform('translateY(-'+(position[9]+position[10])+'px);');
+        if(effect=='bottom') {
+          style = this.transform('translateY('+position[11]+'px);');
+          afterEndStyle = 'margin-bottom:-55px';
+        }
       }
 
-      if(this.defaults.outEffect=='fade' || this.defaults.outEffect=='toRight'){
-        element.addEventListener("click", function(e){
-          this.style.cssText += style;
-          element.addEventListener( 'transitionend',function(e) {
-            this.style.cssText += that.transform('transition-duration: 500ms; margin-top: -55px;');
-            if(e.propertyName=="margin-top"){
-              element.parentNode.removeChild(element);
-            }
-          }, true );
-        });
-      }
 
-      if(this.defaults.outEffect=='toTop'){
-        element.addEventListener("click", function(e){
-          var wot = window.innerHeight - that.wrapper[0].offsetHeight;
-          var eot = wot+this.offsetTop+this.offsetHeight+20;
-          if(directions[0]='top'){
-            eot = this.offsetTop+this.offsetHeight+20;
-          }
-          this.style.cssText += that.transform('translateY(-'+eot+'px);');
+      element.addEventListener("click", function(e){
+        this.style.cssText += style;
+        element.addEventListener( 'transitionend',function(e) {
+          this.style.cssText += afterEndStyle;
+          if(e.propertyName=="margin-bottom") element.parentNode.removeChild(element);
+        }, true );
+      });
 
-          element.addEventListener( 'transitionend',function(e) {
-            this.style.cssText += 'margin-top: -55px;';
-            if(e.propertyName=="margin-top"){
-              element.parentNode.removeChild(element);
-            }
-          }, true );
-        });
-      }
-      if(this.defaults.outEffect=='toBottom'){
-        element.addEventListener("click", function(e){
-
-          var toBottom = window.innerHeight-(this.offsetTop+this.offsetHeight)+this.offsetHeight;
-
-          this.style.cssText += that.transform('translateY('+toBottom+'px);');
-          element.addEventListener( 'transitionend',function(e) {
-            this.style.cssText += 'margin-bottom: -5px;';
-            if(e.propertyName=="margin-bottom"){
-              element.parentNode.removeChild(element);
-            }
-          }, true );
-        });
-      }
 
     },
-    test: function(element){
+    getPosition: function(element){
       var that = this;
       // Get all required values.
+      var wrapper = this.wrapper[0];
       var windowHeight = window.innerHeight;
       var windowWidth = window.innerWidth;
-      var wrapper = this.wrapper[0];
       var wrapperHeight = wrapper.offsetHeight;
+      var wrapperWidth = wrapper.offsetWidth;
       var wrapperOffsetTop = wrapper.offsetTop;
-      //var wrapperOffsetBottom = wrapperOffsetTop +
-      //console.log(wrapperTopOffset);
+      var wrapperOffsetBottom = windowHeight - (wrapperOffsetTop + wrapperHeight);
+      var wrapperOffsetLeft = wrapper.offsetLeft;
+      var wrapperOffsetRight = windowWidth - (wrapperOffsetLeft + wrapperWidth);
+      var elementOffsetTop = element.offsetTop;
+      var elementHeight = element.offsetHeight;
+      var elementOffsetBottom = windowHeight - elementOffsetTop;
+
+
+      return [
+        wrapper, //0
+        windowHeight,//1
+        windowWidth,//2
+        wrapperHeight,//3
+        wrapperWidth,//4
+        wrapperOffsetTop,//5
+        wrapperOffsetBottom,//6
+        wrapperOffsetLeft,//7
+        wrapperOffsetRight,//8
+        elementOffsetTop,//9
+        elementHeight,//10,
+        elementOffsetBottom//11
+      ];
+
 
     },
     transform: function(style){
@@ -166,7 +144,7 @@ var amaran = (function() {
       for(var i in vendor) {
         text += vendor[i]+':'+style+';';
       }
-      return 'transition-duration: 500ms;'+text;
+      return 'transition-duration: 1000ms;'+text;
     },
     getWidth: function(el) {
       var temp = el.cloneNode(true);
