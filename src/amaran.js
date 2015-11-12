@@ -13,6 +13,7 @@ var amaran = (function() {
     },
     // amaranjs public defaults you can change them
     defaults : {
+      type: 'notification',
       theme: 'default',
       position: 'top right',
       content: 'Hello World!',
@@ -63,6 +64,17 @@ var amaran = (function() {
           amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;';
         },300);
       }
+
+     if(this.defaults.inEffect=='fromLeft'){ 
+        var position = this.getPosition(amaran);
+        amaran.style.cssText = 'opacity:0;display:block;transform:translateX(-100%);margin-left:-'+position[2]+'px';
+       setTimeout(function(){
+          amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;transform:translateX(0);margin-left:0';
+        },300);
+        
+    
+        console.log('From Left');
+     }
       return amaran;
     },
     close: function(element){
@@ -71,29 +83,39 @@ var amaran = (function() {
       var directions = this.defaults.position.split(" ");
       var effect = this.defaults.outEffect.replace('to','').toLowerCase();
 
-      var afterEndStyle = 'margin-top: -55px;';
-      var position = this.getPosition(element);
-      if(effect=='left' || effect=='right') {
-        var move = (directions[1]==effect) ? position[4] : position[2];
-        move = (effect=='left') ? move*-1 : move;
-        style = this.transform('translateX('+move+'px);');
-      }
-
-      if(effect=='top' || effect=='bottom') {
-        style = this.transform('translateY(-'+(position[9]+position[10])+'px);');
-        if(effect=='bottom') {
-          style = this.transform('translateY('+position[11]+'px);');
-          afterEndStyle = 'margin-bottom:-55px';
-        }
-      }
-
-
       element.addEventListener("click", function(e){
+        var position = that.getPosition(element);
+        element.className += ' amaran-animated';
+        var afterEndStyle = 'margin-top: -'+position[10]+'px;';
+        if(effect=='left' || effect=='right') {
+          var move = (directions[1]==effect) ? position[4] : position[2];
+          move = (effect=='left') ? move*-1 : move;
+          style = that.transform('translateX('+move+'px);');
+        }
+
+        if(effect=='top' || effect=='bottom') {
+          style = that.transform('translateY(-'+position[1]+'px);');
+          var icerik = document.querySelector("#sonuc").innerHTML;
+          icerik = icerik + "asdfasdasd";
+          // if(directions[0]==effect) {
+          //   style = that.transform('translateY(-'+(position[9]+position[10])+'px);');
+          // }else {
+          //   style = that.transform('translateY(-'+(position[11])+'px);');
+          // }
+          // if(effect=='bottom') {
+          //   style = that.transform('translateY('+position[11]+'px);');
+          //   afterEndStyle = 'position:fixed;bottom:0;margin-bottom:-'+position[10]+'px';
+          // }
+        }
+
+
         this.style.cssText += style;
         element.addEventListener( 'transitionend',function(e) {
           this.style.cssText += afterEndStyle;
-          if(e.propertyName=="margin-bottom") element.parentNode.removeChild(element);
+          if(e.propertyName=="margin-bottom" || e.propertyName=="margin-top") element.parentNode.removeChild(element);
         }, true );
+
+
       });
 
 
@@ -129,8 +151,6 @@ var amaran = (function() {
         elementHeight,//10,
         elementOffsetBottom//11
       ];
-
-
     },
     transform: function(style){
       var text = '';

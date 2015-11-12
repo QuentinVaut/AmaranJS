@@ -9,30 +9,77 @@
     .amaran {
       display: none;
     }
+
   </style>
 </head>
 <body>
-  <p style="text-align:center;">  <button>Click</button></p>
+  <p style="text-align:center;">
+    <button id="toLeft">toLeft</button>
+    <button id="toRight">toRight</button>
+    <button id="toTop">toTop</button>
+    <button id="toBottom">toBottom</button>
+  </p>
+  <pre style="text-align:center;" id="sonuc">
 
+  </pre>
+  
   <script src="../src/amaran.js"></script>
   <script>
-
-    document.querySelector("button").addEventListener("click", function(){
+    var position = 'top right';
+    document.querySelector("#toLeft").addEventListener("click", function(){
       amaran({
         theme: 'default',
-        position: 'top right',
-        inEffect:'fade',
-        outEffect: 'toBottom',
-        content: { hop: 'naber',content: 'Üç'}
+        position: position,
+        inEffect:'fromLeft',
+        outEffect: 'toLeft',
+        content: { hop: 'naber',content: 'Message'}
       });
     });
-    amaran({
-      theme: 'default',
-      position: 'top right',
-      inEffect: 'fade',
-      outEffect: 'toBottom',
-      content: { hop: 'naber',content: 'Üç'}
+
+    document.querySelector("#toRight").addEventListener("click", function(){
+      amaran({
+        theme: 'default',
+        position: position,
+        inEffect:'fade',
+        outEffect: 'toRight',
+        content: { hop: 'naber',content: 'Message'}
+      });
     });
+
+    document.querySelector("#toTop").addEventListener("click", function(){
+      amaran({
+        theme: 'default',
+        position: position,
+        inEffect:'fade',
+        outEffect: 'toTop',
+        content: { hop: 'naber',content: 'Message'}
+      });
+    });
+
+var counter =0;
+    document.querySelector("#toBottom").addEventListener("click", function(){
+      amaran({
+        theme: 'default',
+        position: position,
+        inEffect:'fade',
+        outEffect: 'toBottom',
+        content: { hop: 'naber',content: 'Message '+counter}
+      });
+      counter++;
+    });
+
+
+
+
+
+
+    // amaran({
+    //   theme: 'default',
+    //   position: 'top right',
+    //   inEffect: 'fade',
+    //   outEffect: 'toBottom',
+    //   content: { hop: 'naber',content: 'Üç'}
+    // });
 
   </script>
 </body>
