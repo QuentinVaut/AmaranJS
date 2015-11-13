@@ -18,6 +18,7 @@
     <button id="toRight">toRight</button>
     <button id="toTop">toTop</button>
     <button id="toBottom">toBottom</button>
+    <button id="test">toBottom</button>
   </p>
   <pre style="text-align:center;" id="sonuc">
 
@@ -25,13 +26,23 @@
   
   <script src="../src/amaran.js"></script>
   <script>
-    var position = 'top right';
+    amaran()
+          .theme('default')
+          .content('Merhaba Dunya!')
+          .in('fromRight')
+          .out('toLeft')
+          .position('top left')
+          .build();
+
+    var position = 'top left';
+
+   
     document.querySelector("#toLeft").addEventListener("click", function(){
       amaran({
         theme: 'default',
         position: position,
-        inEffect:'fromLeft',
-        outEffect: 'toLeft',
+        inEffect:'fromRight',
+        outEffect: 'toRight',
         content: { hop: 'naber',content: 'Message'}
       });
     });

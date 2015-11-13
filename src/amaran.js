@@ -18,11 +18,41 @@ var amaran = (function() {
       position: 'top right',
       content: 'Hello World!',
       inEffect: 'fade',
-      outEffect: 'fade'
+      outEffect: 'fade',
+      selector: 'none',
+      selectorEvent: "click"
     },
     init: function(config){
+      if(config  !== undefined) {
+        this.defaults = this.merge(this.defaults,config);
+        this.createWrapper();
+      }
+      return this;
+    },
+    build: function(config) {
       this.defaults = this.merge(this.defaults,config);
       this.createWrapper();
+      return this;
+    },
+    content: function(content) {
+      this.defaults.content = content;
+      return this;
+    },
+    theme:function(name){
+      this.defaults.theme = name;
+      return this;
+    },
+    in: function(effect){
+      this.defaults.inEffect = effect;
+      return this;
+    },
+    out: function(effect){
+      this.defaults.outEffect = effect;
+      return this;
+    },
+    position: function(position) {
+      this.defaults.position = position;
+      return  this;
     },
     createWrapper: function(){
       var inner;
@@ -65,16 +95,43 @@ var amaran = (function() {
         },300);
       }
 
-     if(this.defaults.inEffect=='fromLeft'){ 
+      // i'll improve this part of the code.
+     if(this.defaults.inEffect=='fromLeft'){
         var position = this.getPosition(amaran);
-        amaran.style.cssText = 'opacity:0;display:block;transform:translateX(-100%);margin-left:-'+position[2]+'px';
-       setTimeout(function(){
-          amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;transform:translateX(0);margin-left:0';
+        var directions = this.defaults.position.split(" ");
+        var effect = this.defaults.inEffect.replace('from','').toLowerCase();
+
+        if(effect=='left' && directions[1]=='right'){
+          amaran.style.cssText = 'opacity:0;display:block;transform:translateX(-100%);margin-left:-'+position[2]+'px';
+        }
+        if(effect=='left' && directions[1]=='left'){
+          amaran.style.cssText = 'opacity:0;display:block;transform:translateX(-100%);';
+        }
+
+        setTimeout(function(){
+          amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;transform:translateX(0);margin-left:5px';
         },300);
-        
-    
-        console.log('From Left');
-     }
+        //console.log('From Left');
+      }
+
+      if(this.defaults.inEffect=='fromRight'){
+        var position = this.getPosition(amaran);
+        var directions = this.defaults.position.split(" ");
+        var effect = this.defaults.inEffect.replace('from','').toLowerCase();
+
+        if(effect=='right' && directions[1]=='left'){
+          amaran.style.cssText = 'opacity:0;display:block;transform:translateX(100%);margin-left:'+position[2]+'px';
+        }
+        if(effect=='right' && directions[1]=='right'){
+          amaran.style.cssText = 'opacity:0;display:block;transform:translateX(100%);';
+        }
+
+        setTimeout(function(){
+          amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;transform:translateX(0);margin-left:5px';
+        },300);
+        //console.log('From Left');
+      }
+
       return amaran;
     },
     close: function(element){
@@ -224,10 +281,15 @@ var amaran = (function() {
       add(html.substr(cursor, html.length - cursor));
       code += 'return r.join("");';
       return new Function(code.replace(/[\r\t\n]/g, '')).apply(options);
+    },
+    test: function(){
+      console.log('test');
+      return this;
     }
   };
 
   return function(config){
+    
     return amaranObject.init(config);
   };
 }());
