@@ -77,6 +77,40 @@ var amaran = (function() {
       // handle amaran closing function.
       this.close(amaran);
     },
+    styles: {
+      style:{
+        'display': 'block',
+        'opacity': 0
+      },
+      text: function(){
+        var style  = '';
+        for(var i in this.style) {
+          style += i + ':' + this.style[i] + ';';
+        }
+        return style;
+      },
+      set: function(key,value) {
+        this.style[key] = value;
+        return this;
+      },
+      get: function(key) {
+        return this.style[key];
+      },
+      unset: function(key) {
+        delete this.style[key];
+        return this;
+      }
+    },
+    run: function(obj,styles) {
+      var that = this;
+      setTimeout(function(){
+        for(style in styles) {
+          that.styles.set(style,styles[style]);
+        }
+        obj.style.cssText = that.styles.text();
+      },300);
+      return obj;
+    },
     createAmaran: function(){
       var amaran;
       var options = { template: this.defaults.theme };
@@ -86,35 +120,48 @@ var amaran = (function() {
         options['content'] = this.defaults.content;
       }
       amaran = this.parseHTML(this.engine(this.themes.default(),options))[0];
+
+      // Set default styles.
+      amaran.style.cssText = this.styles.text();
+      // just for future features.
       amaranCounter[this.defaults.position] +=1;
 
       if(this.defaults.inEffect=='fade'){
-        amaran.style.cssText = 'opacity:0;display:block;';
-        setTimeout(function(){
-          amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;';
-        },300);
+        amaran = this.run(amaran,{
+          'opacity':1,
+          'transition-duration':'1500ms'
+        });
       }
 
       // i'll improve this part of the code.
-     if(this.defaults.inEffect=='fromLeft'){
+     if(this.defaults.inEffect=='left'){
         var position = this.getPosition(amaran);
         var directions = this.defaults.position.split(" ");
-        var effect = this.defaults.inEffect.replace('from','').toLowerCase();
+        //var effect = this.defaults.inEffect.replace('from','').toLowerCase();
 
-        if(effect=='left' && directions[1]=='right'){
-          amaran.style.cssText = 'opacity:0;display:block;transform:translateX(-100%);margin-left:-'+position[2]+'px';
+        /*if(effect=='left' && directions[1]=='right'){
+          this.styles.set('transform','translateX(-100%)');
+          this.styles.set('margin-left','-'+position[2]+'px');
+          amaran.style.cssText = this.styles.text();
         }
         if(effect=='left' && directions[1]=='left'){
-          amaran.style.cssText = 'opacity:0;display:block;transform:translateX(-100%);';
+          this.styles.set('transform','translateX(-100%)');
+          amaran.style.cssText =  this.styles.text();
+        }*/
+        this.styles.set('transform','translateX(-100%)');
+        if(directions[1]=='right') {
+          this.styles.set('margin-left','-'+position[2]+'px');
         }
-
-        setTimeout(function(){
-          amaran.style.cssText += 'opacity:1;transition-duration: 1500ms;transform:translateX(0);margin-left:5px';
-        },300);
-        //console.log('From Left');
+        
+        amaran = this.run(amaran,{
+          'opacity':1,
+          'transition-duration':'1500ms',
+          'transform':'translateX(0)',
+          'margin-left':'5px'
+        });
       }
 
-      if(this.defaults.inEffect=='fromRight'){
+      if(this.defaults.inEffect=='right'){
         var position = this.getPosition(amaran);
         var directions = this.defaults.position.split(" ");
         var effect = this.defaults.inEffect.replace('from','').toLowerCase();
@@ -151,18 +198,15 @@ var amaran = (function() {
         }
 
         if(effect=='top' || effect=='bottom') {
-          style = that.transform('translateY(-'+position[1]+'px);');
-          var icerik = document.querySelector("#sonuc").innerHTML;
-          icerik = icerik + "asdfasdasd";
-          // if(directions[0]==effect) {
-          //   style = that.transform('translateY(-'+(position[9]+position[10])+'px);');
-          // }else {
-          //   style = that.transform('translateY(-'+(position[11])+'px);');
-          // }
-          // if(effect=='bottom') {
-          //   style = that.transform('translateY('+position[11]+'px);');
-          //   afterEndStyle = 'position:fixed;bottom:0;margin-bottom:-'+position[10]+'px';
-          // }
+          if(directions[0]==effect) {
+            style = that.transform('translateY(-'+(position[9]+position[10])+'px);');
+          }else {
+            style = that.transform('translateY(-'+(position[11])+'px);');
+          }
+          if(effect=='bottom') {
+            style = that.transform('translateY('+position[11]+'px);');
+            afterEndStyle = 'position:fixed;bottom:0;margin-bottom:-'+position[10]+'px';
+          }
         }
 
 
@@ -289,7 +333,7 @@ var amaran = (function() {
   };
 
   return function(config){
-    
+
     return amaranObject.init(config);
   };
 }());

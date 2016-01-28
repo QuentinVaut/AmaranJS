@@ -14,84 +14,71 @@
 </head>
 <body>
   <p style="text-align:center;">
-    <button id="toLeft">toLeft</button>
-    <button id="toRight">toRight</button>
-    <button id="toTop">toTop</button>
-    <button id="toBottom">toBottom</button>
-    <button id="test">toBottom</button>
+    From Left
+    <br>
+    <button class='button' data-from='left' data-to='left'>From Left to Left</button>
+    <button class='button' data-from='left' data-to='right'>From Left to Right</button>
+    <button class='button' data-from='left' data-to='top'>From Left to Top</button>
+    <button class='button' data-from='left' data-to='bottom'>From Left to Bottom</button>
   </p>
-  <pre style="text-align:center;" id="sonuc">
+  <p style="text-align:center;">
+    From Right
+    <br>
+    <button class='button' data-from='right' data-to='left'>From Right to Left</button>
+    <button class='button' data-from='right' data-to='right'>From Right to Right</button>
+    <button class='button' data-from='right' data-to='top'>From Right to Top</button>
+    <button class='button' data-from='right' data-to='bottom'>From Right to Bottom</button>
+  </p>
+  <p style="text-align:center;">
+    From Bottom
+    <br>
+    <button class='button' data-from='bottom' data-to='left'>From Bottom to Left</button>
+    <button class='button' data-from='bottom' data-to='right'>From Bottom to Right</button>
+    <button class='button' data-from='bottom' data-to='top'>From Bottom to Top</button>
+    <button class='button' data-from='bottom' data-to='bottom'>From Bottom to Bottom</button>
+  </p>
+  <p style="text-align:center;">
+    From Top
+    <br>
+    <button class='button' data-from='right' data-to='left'>From Top to Right</button>
+    <button class='button' data-from='right' data-to='right'>From Top to Left</button>
+    <button class='button' data-from='right' data-to='top'>From Top to Top</button>
+    <button class='button' data-from='right' data-to='bottom'>From Top to Bottom</button>
+  </p>
 
-  </pre>
-  
   <script src="../src/amaran.js"></script>
   <script>
-    amaran()
+   /* amaran()
           .theme('default')
           .content('Merhaba Dunya!')
-          .in('fromRight')
-          .out('toLeft')
+          .in('left')
+          .out('left')
           .position('top left')
-          .build();
+          .build();*/
+          var buttons = document.querySelectorAll(".button");
+          for (var i = 0; i < buttons.length; i++) {
+              buttons[i].addEventListener('click', function(e) {
+                console.log(this.dataset.to);
+                amaran({
+                  theme: 'default',
+                  position: 'top left',
+                  inEffect:'right',
+                  outEffect: 'left',
+                  content: { hop: 'naber',content: 'Message'}
+                });
+              });
+          }
 
-    var position = 'top left';
-
-   
-    document.querySelector("#toLeft").addEventListener("click", function(){
-      amaran({
-        theme: 'default',
-        position: position,
-        inEffect:'fromRight',
-        outEffect: 'toRight',
-        content: { hop: 'naber',content: 'Message'}
-      });
-    });
-
-    document.querySelector("#toRight").addEventListener("click", function(){
-      amaran({
-        theme: 'default',
-        position: position,
-        inEffect:'fade',
-        outEffect: 'toRight',
-        content: { hop: 'naber',content: 'Message'}
-      });
-    });
-
-    document.querySelector("#toTop").addEventListener("click", function(){
-      amaran({
-        theme: 'default',
-        position: position,
-        inEffect:'fade',
-        outEffect: 'toTop',
-        content: { hop: 'naber',content: 'Message'}
-      });
-    });
-
-var counter =0;
-    document.querySelector("#toBottom").addEventListener("click", function(){
-      amaran({
-        theme: 'default',
-        position: position,
-        inEffect:'fade',
-        outEffect: 'toBottom',
-        content: { hop: 'naber',content: 'Message '+counter}
-      });
-      counter++;
-    });
-
-
-
-
-
-
-    // amaran({
-    //   theme: 'default',
-    //   position: 'top right',
-    //   inEffect: 'fade',
-    //   outEffect: 'toBottom',
-    //   content: { hop: 'naber',content: 'Üç'}
-    // });
-
+        /*document.querySelectorAll(".button").addEventListener("click", function(){
+          console.log('tesfs');
+          amaran({
+            theme: 'default',
+            position: 'top left',
+            inEffect:'right',
+            outEffect: 'left',
+            content: { hop: 'naber',content: 'Message'}
+          });
+        });*/
   </script>
 </body>
 </html>
